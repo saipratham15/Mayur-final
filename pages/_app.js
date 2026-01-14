@@ -1,27 +1,13 @@
-import 'nextra-theme-blog/style.css'
-import Head from 'next/head'
+import '../styles/globals.css'
+import { Inter } from 'next/font/google'
 
-import '../styles/main.css'
+// If loading a font fails, Next.js will use a fallback, preventing a crash
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
-export default function Nextra({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <Head>
-        <link
-          rel="alternate"
-          type="application/rss+xml"
-          title="RSS"
-          href="/feed.xml"
-        />
-        <link
-          rel="preload"
-          href="/fonts/Inter-roman.latin.var.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-      </Head>
+    <main className={inter.className}>
       <Component {...pageProps} />
-    </>
+    </main>
   )
 }
