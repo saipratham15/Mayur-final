@@ -1,13 +1,15 @@
-import '../styles/globals.css'
-import { Inter } from 'next/font/google'
-
-// If loading a font fails, Next.js will use a fallback, preventing a crash
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+// We import main.css because that is the file you have in your styles folder
+import '../styles/main.css'
+import Head from 'next/head'
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <main className={inter.className}>
+    <>
+      <Head>
+        {/* This script forces Tailwind CSS to load from the internet */}
+        <script src="https://cdn.tailwindcss.com"></script>
+      </Head>
       <Component {...pageProps} />
-    </main>
+    </>
   )
 }
